@@ -4,6 +4,7 @@ object Constants {
     const val GENERIC_ERROR = "Something went wrong"
 
     const val DATABASE_NAME = "TranslationsDatabase"
+    const val RECORDS_TABLE_NAME = "translation_record"
     const val DATABASE_VERSION = 1
 
     const val API_HOST = "google-unlimited-multi-translate.p.rapidapi.com"

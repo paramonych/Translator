@@ -9,23 +9,9 @@ data class TranslationApiResponse(
     val text: String?,
     val from: String?,
     val to: String?,
-    @SerializedName("translate_capital") val price: Boolean?,
-    val protected: Array<String>?,
-    val result: String?,
+    @SerializedName("translate_capital") val cap: Boolean?,
+    val protected: Any,
+    val result: TranslationText,
+    @SerializedName("count_characters") val chars: Int,
+    @SerializedName("count_words") val words: Int,
 )
-
-//{
-//    "code":200
-//    "status":"success"
-//    "message":""
-//    "text":"Hello world, IM a Developer what is YOU name ?"
-//    "from":"auto"
-//    "to":"ru"
-//    "translate_capital":true
-//    "protected":[]
-//    "result":{
-//        "ru":"Привет, мир! Я разработчик, как ВАС зовут?"
-//    }
-//    "count_characters":46
-//    "count_words":9
-//}

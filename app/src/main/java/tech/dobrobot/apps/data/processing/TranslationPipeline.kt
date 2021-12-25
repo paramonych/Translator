@@ -6,6 +6,7 @@ import javax.inject.Inject
 import tech.dobrobot.apps.data.database.local.LocalDatabase
 import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.utils.Constants
+import tech.dobrobot.apps.utils.extensions.emptyIfNull
 import tech.dobrobot.apps.utils.remote.RemoteResult
 import tech.dobrobot.apps.utils.remote.succeeded
 import java.util.*
@@ -24,13 +25,13 @@ class TranslationPipeline @Inject constructor(
                         val translationRecord = TranslationRecord(
                             (Math.random() * 1000000).toInt(),
                             Date().toString(),
-                            it.toString(),
-                            it.toString()
+                            it.text.emptyIfNull(),
+                            it.result.ru
                         )
 
                         database.translationRecordDao().insert(translationRecord)
 
-                        return RemoteResult.Success(it.toString())
+                        return RemoteResult.Success(it.result.ru)
                     }
 
                 } else {
