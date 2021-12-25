@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Translator</string>
+    <string name="translate">Translate</string>
+    <string name="history">History</string>
+    <string name="no_records_yet">No records yet</string>
+    <string name="error_api_invocation">Google translate API invocation error</string>
+    <string name="submit_button_label">Translate</string>
+    <string name="empty_text_submitted">There is nothing to work with. Please provide some text to translate</string>
+    <string name="clear_button_label">Clear</string>
+    <string name="Ok">Ok</string>
+</resources>

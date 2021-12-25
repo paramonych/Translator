@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+<!--    <data>-->
+<!--        <import type="android.view.View"/>-->
+
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="tech.dobrobot.apps.ui.main.translate.TranslateViewModel"/>-->
+<!--    </data>-->
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:context=".ui.main.translate.TranslateFragment">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.translate.TranslateFragment">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/Widget.Custom.Toolbar"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/translationInputFormWrapper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp"
+            app:contentPadding="10dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/translationFormMainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/originalText"
+                    android:layout_width="0dp"
+                    android:layout_height="180dp"
+                    android:gravity="start"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/shaded_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:hint="Type something here"
+                    />
+
+                <Button
+                    android:id="@+id/submitTranslation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit_button_label"
+                    android:textColor="@color/white"
+                    android:paddingVertical="10dp"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/originalText"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:id="@+id/clearText"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear_button_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/submitTranslation" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <ProgressBar
+            android:id="@+id/translationLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/translationInputFormWrapper"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/translationTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Your translation will be here"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="5dp"
+            android:gravity="start"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/translationInputFormWrapper"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--</layout>-->

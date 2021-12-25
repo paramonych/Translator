@@ -1,0 +1,43 @@
+package tech.dobrobot.apps.data.processing
+
+import tech.dobrobot.apps.api.translation.GoogleTranslationApi
+import tech.dobrobot.apps.utils.remote.RemoteDataSource
+import javax.inject.Inject
+import tech.dobrobot.apps.data.database.local.LocalDatabase
+import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
+import tech.dobrobot.apps.utils.Constants
+import tech.dobrobot.apps.utils.remote.RemoteResult
+import tech.dobrobot.apps.utils.remote.succeeded
+import java.util.*
+
+class TranslationPipeline @Inject constructor(
+    private val api: GoogleTranslationApi,
+    private val database: LocalDatabase
+): RemoteDataSource() {
+
+    suspend fun loadTranslation(originalText: String): RemoteResult<*> {
+
+        when (val result = getResult { api.doTranslation(Constants.API_KEY, originalText) }) {
+            is RemoteResult.Success -> {
+                if (result.succeeded) {
+                    result.data.let {
+                        val translationRecord = TranslationRecord(
+                            (Math.random() * 1000000).toInt(),
+                            Date().toString(),
+                            it.toString(),
+                            it.toString()
+                        )
+
+                        database.translationRecordDao().insert(translationRecord)
+
+                        return RemoteResult.Success(it.toString())
+                    }
+
+                } else {
+                    return RemoteResult.Error(Constants.GENERIC_ERROR)
+                }
+            }
+            else -> return result as RemoteResult.Error
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigator"
+    app:startDestination="@id/navigation_translate">
+    <fragment
+        android:id="@+id/navigation_translate"
+        android:name="tech.dobrobot.apps.ui.main.translate.TranslateFragment"
+        android:label="@string/translate"
+        tools:layout="@layout/fragment_translate"/>
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="tech.dobrobot.apps.ui.main.history.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history"/>
+</navigation>
