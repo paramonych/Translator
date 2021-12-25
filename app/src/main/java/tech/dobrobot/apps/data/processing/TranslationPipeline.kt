@@ -1,7 +1,5 @@
 package tech.dobrobot.apps.data.processing
 
-import android.R
-import android.content.res.Resources
 import tech.dobrobot.apps.api.translation.GoogleTranslationApi
 import tech.dobrobot.apps.utils.remote.RemoteDataSource
 import javax.inject.Inject

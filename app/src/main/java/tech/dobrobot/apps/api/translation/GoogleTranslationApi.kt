@@ -1,6 +1,5 @@
 package tech.dobrobot.apps.api.translation
 
-import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 import tech.dobrobot.apps.api.translation.model.TranslationApiResponse

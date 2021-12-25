@@ -1,6 +1,5 @@
 package tech.dobrobot.apps.ui.main.translate
 
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

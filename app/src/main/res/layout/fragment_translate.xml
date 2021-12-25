@@ -113,6 +113,7 @@
             android:drawablePadding="5dp"
             android:gravity="start"
             android:textSize="20sp"
+            android:autoLink="web"
             app:layout_constraintTop_toBottomOf="@id/translationInputFormWrapper"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>

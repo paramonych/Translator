@@ -2,24 +2,20 @@ package tech.dobrobot.apps.ui.main.translate
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_translate.*
 import tech.dobrobot.apps.R
-import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.ui.MainNavigationFragment
 import tech.dobrobot.apps.utils.Constants
 import tech.dobrobot.apps.utils.extensions.doOnChange
-import tech.dobrobot.apps.utils.remote.RemoteResult
 
 @AndroidEntryPoint
 class TranslateFragment: MainNavigationFragment() {

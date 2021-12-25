@@ -2,7 +2,6 @@ package tech.dobrobot.apps.data.database.local.tables.history
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import androidx.sqlite.db.SimpleSQLiteQuery
 import tech.dobrobot.apps.utils.Constants
 
 @Dao
