@@ -1,5 +1,6 @@
 package tech.dobrobot.apps.ui.main.translate
 
+import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,10 +23,10 @@ class TranslateViewModel @Inject constructor(private val dataProcessingPipeline:
     private val _translated = MutableLiveData<String>()
     val translated: LiveData<String> = _translated
 
-    fun loadTranslation(originalText: String) {
+    fun loadTranslation(originalText: String, to: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _isLoading.postValue(true)
-            when (val result = dataProcessingPipeline.loadTranslation(originalText)) {
+            when (val result = dataProcessingPipeline.loadTranslation(originalText, to)) {
                 is RemoteResult.Success -> _translated.postValue(result.data.toString())
                 is RemoteResult.Error -> _toastError.postValue(result.message)
             }

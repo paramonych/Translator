@@ -11,6 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_history.*
 import tech.dobrobot.apps.adapters.OnRemoveClickCallback
 import tech.dobrobot.apps.adapters.RecordsListAdapter
+import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.databinding.FragmentHistoryBinding
 import tech.dobrobot.apps.ui.MainNavigationFragment
 import tech.dobrobot.apps.utils.extensions.doOnChange
@@ -57,8 +58,8 @@ class HistoryFragment: MainNavigationFragment(), OnRemoveClickCallback {
 
     }
 
-    override fun onRemoveClick(id: Int) {
-        viewModel.removeHistoryRecord(id)
+    override fun onRemoveClick(record: TranslationRecord) {
+        viewModel.removeHistoryRecord(record)
     }
 
     private fun showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {

@@ -2,6 +2,7 @@ package tech.dobrobot.apps.utils
 
 object Constants {
     const val GENERIC_ERROR = "Something went wrong"
+    const val MAIN_LOGO_PATH = "logo.png"
 
     const val DATABASE_NAME = "TranslationsDatabase"
     const val RECORDS_TABLE_NAME = "translation_record"
@@ -9,6 +10,4 @@ object Constants {
 
     const val API_HOST = "google-unlimited-multi-translate.p.rapidapi.com"
     const val API_URL = "https://${API_HOST}"
-    const val API_KEY = ""
-
 }

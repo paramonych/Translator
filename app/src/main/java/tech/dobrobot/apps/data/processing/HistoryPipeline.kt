@@ -10,12 +10,7 @@ import tech.dobrobot.apps.utils.Constants
 class HistoryPipeline @Inject constructor(private val database: LocalDatabase) {
     val historyRecords: LiveData<List<TranslationRecord>> = database.translationRecordDao().historyList()
 
-    suspend fun removeHistoryRecord(id: Int) {
-        database.translationRecordDao().delete(
-            SimpleSQLiteQuery(
-                "SELECT * FROM ${Constants.RECORDS_TABLE_NAME} WHERE id = ?",
-                arrayOf(id)
-            )
-        )
+    suspend fun removeHistoryRecord(record: TranslationRecord) {
+        database.translationRecordDao().deleteRecord(record)
     }
 }

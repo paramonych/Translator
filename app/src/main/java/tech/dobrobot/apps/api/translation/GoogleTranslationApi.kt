@@ -11,10 +11,8 @@ interface GoogleTranslationApi {
     @Headers("x-rapidapi-host: ${Constants.API_HOST}")
     @POST("/api_translate_unlimited.php")
     suspend fun doTranslation(
-        @Header("x-rapidapi-key") key: String,
-        @Field("text") text: String,
-        @Field("from") from: String = "auto",
-        @Field("to") to: String = "ru",
-        @Field("translate_capital") capital: String = "true",
+        @Field("text") original: String,
+        @Field("to") to: String,
+        @Header("x-rapidapi-key") text: String
     ): Response<TranslationApiResponse>
 }

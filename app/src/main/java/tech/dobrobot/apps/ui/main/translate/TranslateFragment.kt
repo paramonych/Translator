@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_translate.*
 import tech.dobrobot.apps.R
 import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.ui.MainNavigationFragment
+import tech.dobrobot.apps.utils.Constants
 import tech.dobrobot.apps.utils.extensions.doOnChange
 import tech.dobrobot.apps.utils.remote.RemoteResult
 
@@ -36,7 +37,11 @@ class TranslateFragment: MainNavigationFragment() {
                 val textToTranslate = input.text.toString()
 
                 if(textToTranslate.isNotEmpty()) {
-                    viewModel.loadTranslation(textToTranslate)
+                    viewModel.loadTranslation(textToTranslate, view.context.assets
+                        .open(Constants.MAIN_LOGO_PATH)
+                        .bufferedReader().use {
+                            it.readText()
+                        })
                 } else {
                     showToast(getString(R.string.empty_text_submitted))
                 }
@@ -58,7 +63,7 @@ class TranslateFragment: MainNavigationFragment() {
     override fun initializeViews() {
     }
 
-    fun hideKeyboard(input: EditText) {
+    private fun hideKeyboard(input: EditText) {
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(input.windowToken, 0)
     }

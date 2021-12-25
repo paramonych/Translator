@@ -13,6 +13,6 @@ interface TranslationRecordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(list: TranslationRecord)
 
-    @RawQuery()
-    suspend fun delete(query: SimpleSQLiteQuery): Any
+    @Delete
+    suspend fun deleteRecord(record: TranslationRecord)
 }

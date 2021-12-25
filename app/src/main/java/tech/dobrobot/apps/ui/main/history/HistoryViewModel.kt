@@ -24,9 +24,9 @@ class HistoryViewModel @Inject constructor(private val dataProcessingPipeline: H
 
     val historyRecordsList: LiveData<List<TranslationRecord>> = dataProcessingPipeline.historyRecords
 
-    fun removeHistoryRecord(id: Int) {
+    fun removeHistoryRecord(record: TranslationRecord) {
         viewModelScope.launch(Dispatchers.IO) {
-            dataProcessingPipeline.removeHistoryRecord(id)
+            dataProcessingPipeline.removeHistoryRecord(record)
         }
     }
 }

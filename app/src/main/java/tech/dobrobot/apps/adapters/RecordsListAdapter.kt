@@ -10,7 +10,7 @@ import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.utils.extensions.emptyIfNull
 
 interface OnRemoveClickCallback {
-    fun onRemoveClick(id: Int)
+    fun onRemoveClick(record: TranslationRecord)
 }
 
 class RecordsListAdapter (private val onRemoveClickCallback: OnRemoveClickCallback) : RecyclerView.Adapter<RecordsListAdapter.HistoryListViewHolder>() {
@@ -41,7 +41,7 @@ class RecordsListAdapter (private val onRemoveClickCallback: OnRemoveClickCallba
             itemView.recordDateTextView.text = model.date.emptyIfNull()
 
             itemView.removeRecordImageView.setOnClickListener {
-                onRemoveClickCallback.onRemoveClick(model.id)
+                onRemoveClickCallback.onRemoveClick(model)
             }
         }
     }
