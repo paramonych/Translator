@@ -14,6 +14,7 @@ import tech.dobrobot.apps.adapters.RecordsListAdapter
 import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.databinding.FragmentHistoryBinding
 import tech.dobrobot.apps.ui.MainNavigationFragment
+import tech.dobrobot.apps.utils.Constants
 import tech.dobrobot.apps.utils.extensions.doOnChange
 
 @AndroidEntryPoint
@@ -49,7 +50,7 @@ class HistoryFragment: MainNavigationFragment(), OnRemoveClickCallback {
         viewModel.historyRecordsList.doOnChange(this) {
             recordsListAdapter.updateList(it)
 
-            showToast("Record removed")
+            showToast(Constants.RECORD_REMOVED)
         }
 
         viewModel.toastError.doOnChange(this) {

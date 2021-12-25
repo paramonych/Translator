@@ -8,6 +8,8 @@ import kotlinx.android.synthetic.main.history_records_list.view.*
 import tech.dobrobot.apps.R
 import tech.dobrobot.apps.data.database.local.tables.history.TranslationRecord
 import tech.dobrobot.apps.utils.extensions.emptyIfNull
+import java.text.SimpleDateFormat
+import java.util.*
 
 interface OnRemoveClickCallback {
     fun onRemoveClick(record: TranslationRecord)
@@ -38,7 +40,7 @@ class RecordsListAdapter (private val onRemoveClickCallback: OnRemoveClickCallba
         fun bind(model: TranslationRecord, onRemoveClickCallback: OnRemoveClickCallback) {
             itemView.originalTextView.text = model.original.emptyIfNull()
             itemView.translatedTextView.text = model.translated.emptyIfNull()
-            itemView.recordDateTextView.text = model.date.emptyIfNull()
+            itemView.recordDateTextView.text = SimpleDateFormat("dd/MM/yyyy hh:mm").format(Date(model.date))
 
             itemView.removeRecordImageView.setOnClickListener {
                 onRemoveClickCallback.onRemoveClick(model)

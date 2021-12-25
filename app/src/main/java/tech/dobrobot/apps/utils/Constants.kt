@@ -2,6 +2,7 @@ package tech.dobrobot.apps.utils
 
 object Constants {
     const val GENERIC_ERROR = "Something went wrong"
+    const val RECORD_REMOVED = "Record removed"
     const val MAIN_LOGO_PATH = "logo.png"
 
     const val DATABASE_NAME = "TranslationsDatabase"

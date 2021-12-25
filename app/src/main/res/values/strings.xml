@@ -8,4 +8,6 @@
     <string name="empty_text_submitted">There is nothing to work with. Please provide some text to translate</string>
     <string name="clear_button_label">Clear</string>
     <string name="Ok">Ok</string>
+    <string name="input_hint">Type something here</string>
+    <string name="output_placeholder">Your translation will be here</string>
 </resources>

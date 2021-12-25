@@ -63,7 +63,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:hint="Type something here"
+                    android:hint="@string/input_hint"
                     />
 
                 <Button
@@ -107,7 +107,7 @@
             android:id="@+id/translationTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Your translation will be here"
+            android:text="@string/output_placeholder"
             android:layout_marginTop="40dp"
             android:layout_marginHorizontal="20dp"
             android:drawablePadding="5dp"

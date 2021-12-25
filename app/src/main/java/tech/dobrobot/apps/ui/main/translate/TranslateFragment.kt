@@ -52,6 +52,7 @@ class TranslateFragment: MainNavigationFragment() {
 
                 if(input.text.toString().isNotEmpty()) {
                     input.text.clear()
+                    translationTextView.text = getString(R.string.output_placeholder)
                     showToast(getString(R.string.Ok))
                 }
             }
